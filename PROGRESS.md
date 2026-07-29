@@ -7,7 +7,8 @@
 - Git repository, `.gitignore`, and virtual environment
 - `Todo` model and Django admin registration
 - Todo list URL, view, and template
+- Todo creation form
 
 ## Next
 
-- Add a way to create todos
+- Mark todos as complete
