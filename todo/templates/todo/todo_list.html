@@ -18,7 +18,10 @@
 
         <form method="post" class="add-todo-form">
             {% csrf_token %}
-            {{ form.title }}
+            <div class="form-field">
+                {{ form.title }}
+                {{ form.title.errors }}
+            </div>
             <button type="submit">Add todo</button>
         </form>
 

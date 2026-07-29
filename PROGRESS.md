@@ -14,7 +14,8 @@
 - Basic page styling
 - User signup, login, and logout
 - Private todo lists for signed-in users
+- Clear validation messages for todo titles
 
 ## Next
 
-- Add user-friendly validation messages to the todo form
+- Choose the next feature to build

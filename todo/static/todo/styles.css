@@ -37,6 +37,21 @@ h1 {
     flex: 1;
 }
 
+.form-field {
+    flex: 1;
+}
+
+.form-field input {
+    width: 100%;
+}
+
+.errorlist {
+    margin: 0.35rem 0 0;
+    padding: 0;
+    color: #b91c1c;
+    list-style: none;
+}
+
 input,
 button {
     padding: 0.65rem 0.8rem;
