@@ -30,3 +30,12 @@ def complete_todo(request, todo_id):
         todo.save()
 
     return redirect('todo_list')
+
+
+def delete_todo(request, todo_id):
+    todo = get_object_or_404(Todo, id=todo_id)
+
+    if request.method == 'POST':
+        todo.delete()
+
+    return redirect('todo_list')

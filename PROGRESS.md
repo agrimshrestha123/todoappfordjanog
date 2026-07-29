@@ -9,7 +9,8 @@
 - Todo list URL, view, and template
 - Todo creation form
 - Mark todos as complete
+- Delete todos
 
 ## Next
 
-- Delete todos
+- Edit todo titles
