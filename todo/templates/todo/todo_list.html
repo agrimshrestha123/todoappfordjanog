@@ -16,6 +16,21 @@
             <button type="submit">Log out</button>
         </form>
 
+        <form method="get" class="filter-form">
+            <input
+                type="search"
+                name="q"
+                value="{{ search_query }}"
+                placeholder="Search todos"
+            >
+            <select name="status">
+                <option value="all" {% if status == 'all' %}selected{% endif %}>All</option>
+                <option value="active" {% if status == 'active' %}selected{% endif %}>Active</option>
+                <option value="completed" {% if status == 'completed' %}selected{% endif %}>Completed</option>
+            </select>
+            <button type="submit">Filter</button>
+        </form>
+
         <form method="post" class="add-todo-form">
             {% csrf_token %}
             <div class="form-field">
@@ -49,7 +64,7 @@
                 {% endfor %}
             </ul>
         {% else %}
-            <p class="empty-state">No todos have been added yet.</p>
+            <p class="empty-state">No matching todos found.</p>
         {% endif %}
     </main>
 </body>

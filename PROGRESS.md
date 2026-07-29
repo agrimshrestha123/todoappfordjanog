@@ -15,7 +15,11 @@
 - User signup, login, and logout
 - Private todo lists for signed-in users
 - Clear validation messages for todo titles
+- Search todos by title
+- Filter todos by active or completed status
 
 ## Next
 
-- Choose the next feature to build
+- Show active and completed todo counts
+- Add todo categories
+- Add due dates

@@ -1,5 +1,6 @@
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import SignupForm, TodoForm
@@ -9,6 +10,16 @@ from .models import Todo
 @login_required
 def todo_list(request):
     todos = Todo.objects.filter(owner=request.user)
+    search_query = request.GET.get('q', '').strip()
+    status = request.GET.get('status', 'all')
+
+    if search_query:
+        todos = todos.filter(Q(title__icontains=search_query))
+
+    if status == 'active':
+        todos = todos.filter(completed=False)
+    elif status == 'completed':
+        todos = todos.filter(completed=True)
 
     if request.method == 'POST':
         form = TodoForm(request.POST)
@@ -23,7 +34,12 @@ def todo_list(request):
     return render(
         request,
         'todo/todo_list.html',
-        {'todos': todos, 'form': form},
+        {
+            'todos': todos,
+            'form': form,
+            'search_query': search_query,
+            'status': status,
+        },
     )
 
 

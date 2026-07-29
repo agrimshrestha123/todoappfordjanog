@@ -23,10 +23,19 @@ h1 {
 }
 
 .add-todo-form,
+.filter-form,
 .todo-actions,
 .todo-actions form {
     display: flex;
     gap: 0.5rem;
+}
+
+.filter-form {
+    margin: 1rem 0;
+}
+
+.filter-form input {
+    flex: 1;
 }
 
 .auth-form input {
