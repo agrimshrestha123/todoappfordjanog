@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Todo</title>
+    <link rel="stylesheet" href="{% static 'todo/styles.css' %}">
 </head>
 <body>
-    <h1>Edit Todo</h1>
+    <main class="page-container">
+        <h1>Edit Todo</h1>
 
-    <form method="post">
-        {% csrf_token %}
-        {{ form.title }}
-        <button type="submit">Save changes</button>
-    </form>
+        <form method="post" class="add-todo-form">
+            {% csrf_token %}
+            {{ form.title }}
+            <button type="submit">Save changes</button>
+        </form>
 
-    <p><a href="{% url 'todo_list' %}">Back to todo list</a></p>
+        <p><a href="{% url 'todo_list' %}">Back to todo list</a></p>
+    </main>
 </body>
 </html>

@@ -11,7 +11,8 @@
 - Mark todos as complete
 - Delete todos
 - Edit todo titles
+- Basic page styling
 
 ## Next
 
-- Improve the page styling
+- Decide whether todo items should be private to each user

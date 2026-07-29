@@ -1,42 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List</title>
+    <link rel="stylesheet" href="{% static 'todo/styles.css' %}">
 </head>
 <body>
-    <h1>Todo List</h1>
+    <main class="page-container">
+        <h1>Todo List</h1>
 
-    <form method="post">
-        {% csrf_token %}
-        {{ form.title }}
-        <button type="submit">Add todo</button>
-    </form>
+        <form method="post" class="add-todo-form">
+            {% csrf_token %}
+            {{ form.title }}
+            <button type="submit">Add todo</button>
+        </form>
 
-    {% if todos %}
-        <ul>
-            {% for todo in todos %}
-                <li>
-                    {% if todo.completed %}
-                        <s>{{ todo.title }}</s>
-                    {% else %}
-                        {{ todo.title }}
-                        <a href="{% url 'edit_todo' todo.id %}">Edit</a>
-                        <form method="post" action="{% url 'complete_todo' todo.id %}">
-                            {% csrf_token %}
-                            <button type="submit">Complete</button>
-                        </form>
-                    {% endif %}
-                    <form method="post" action="{% url 'delete_todo' todo.id %}">
-                        {% csrf_token %}
-                        <button type="submit">Delete</button>
-                    </form>
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No todos have been added yet.</p>
-    {% endif %}
+        {% if todos %}
+            <ul class="todo-list">
+                {% for todo in todos %}
+                    <li class="todo-item">
+                        <span class="todo-title {% if todo.completed %}completed{% endif %}">
+                            {{ todo.title }}
+                        </span>
+                        <span class="todo-actions">
+                            {% if not todo.completed %}
+                                <a href="{% url 'edit_todo' todo.id %}">Edit</a>
+                                <form method="post" action="{% url 'complete_todo' todo.id %}">
+                                    {% csrf_token %}
+                                    <button type="submit">Complete</button>
+                                </form>
+                            {% endif %}
+                            <form method="post" action="{% url 'delete_todo' todo.id %}">
+                                {% csrf_token %}
+                                <button class="delete-button" type="submit">Delete</button>
+                            </form>
+                        </span>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="empty-state">No todos have been added yet.</p>
+        {% endif %}
+    </main>
 </body>
 </html>
