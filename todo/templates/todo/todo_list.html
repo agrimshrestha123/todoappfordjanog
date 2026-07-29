@@ -16,6 +16,11 @@
             <button type="submit">Log out</button>
         </form>
 
+        <section class="todo-counts" aria-label="Todo counts">
+            <p><strong>{{ active_count }}</strong> active</p>
+            <p><strong>{{ completed_count }}</strong> completed</p>
+        </section>
+
         <form method="get" class="filter-form">
             <input
                 type="search"

@@ -17,9 +17,9 @@
 - Clear validation messages for todo titles
 - Search todos by title
 - Filter todos by active or completed status
+- Show active and completed todo counts
 
 ## Next
 
-- Show active and completed todo counts
 - Add todo categories
 - Add due dates

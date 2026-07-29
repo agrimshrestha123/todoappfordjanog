@@ -9,9 +9,12 @@ from .models import Todo
 
 @login_required
 def todo_list(request):
-    todos = Todo.objects.filter(owner=request.user)
+    user_todos = Todo.objects.filter(owner=request.user)
+    todos = user_todos
     search_query = request.GET.get('q', '').strip()
     status = request.GET.get('status', 'all')
+    active_count = user_todos.filter(completed=False).count()
+    completed_count = user_todos.filter(completed=True).count()
 
     if search_query:
         todos = todos.filter(Q(title__icontains=search_query))
@@ -39,6 +42,8 @@ def todo_list(request):
             'form': form,
             'search_query': search_query,
             'status': status,
+            'active_count': active_count,
+            'completed_count': completed_count,
         },
     )
 
