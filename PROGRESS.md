@@ -10,7 +10,8 @@
 - Todo creation form
 - Mark todos as complete
 - Delete todos
+- Edit todo titles
 
 ## Next
 
-- Edit todo titles
+- Improve the page styling
