@@ -10,6 +10,11 @@
 <body>
     <main class="page-container">
         <h1>Todo List</h1>
+        <p>Signed in as {{ request.user.username }}.</p>
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">Log out</button>
+        </form>
 
         <form method="post" class="add-todo-form">
             {% csrf_token %}

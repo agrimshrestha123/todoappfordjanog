@@ -12,7 +12,9 @@
 - Delete todos
 - Edit todo titles
 - Basic page styling
+- User signup, login, and logout
+- Private todo lists for signed-in users
 
 ## Next
 
-- Decide whether todo items should be private to each user
+- Add user-friendly validation messages to the todo form
