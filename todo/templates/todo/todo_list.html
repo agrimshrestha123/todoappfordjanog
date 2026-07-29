@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+</head>
+<body>
+    <h1>Todo List</h1>
+
+    {% if todos %}
+        <ul>
+            {% for todo in todos %}
+                <li>
+                    {% if todo.completed %}
+                        <s>{{ todo.title }}</s>
+                    {% else %}
+                        {{ todo.title }}
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No todos have been added yet.</p>
+    {% endif %}
+</body>
+</html>
