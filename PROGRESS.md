@@ -8,7 +8,8 @@
 - `Todo` model and Django admin registration
 - Todo list URL, view, and template
 - Todo creation form
+- Mark todos as complete
 
 ## Next
 
-- Mark todos as complete
+- Delete todos
