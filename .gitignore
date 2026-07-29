@@ -13,5 +13,6 @@ staticfiles/
 
 # Environment and editor files
 .env
+.DS_Store
 .vscode/
 .idea/
