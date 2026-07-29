@@ -13,6 +13,7 @@ def todo_list(request):
     todos = user_todos
     search_query = request.GET.get('q', '').strip()
     status = request.GET.get('status', 'all')
+    category = request.GET.get('category', 'all')
     active_count = user_todos.filter(completed=False).count()
     completed_count = user_todos.filter(completed=True).count()
 
@@ -23,6 +24,9 @@ def todo_list(request):
         todos = todos.filter(completed=False)
     elif status == 'completed':
         todos = todos.filter(completed=True)
+
+    if category != 'all':
+        todos = todos.filter(category=category)
 
     if request.method == 'POST':
         form = TodoForm(request.POST)
@@ -42,6 +46,8 @@ def todo_list(request):
             'form': form,
             'search_query': search_query,
             'status': status,
+            'category': category,
+            'categories': Todo.CATEGORY_CHOICES,
             'active_count': active_count,
             'completed_count': completed_count,
         },

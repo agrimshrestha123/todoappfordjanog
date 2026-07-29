@@ -66,6 +66,10 @@ h1 {
     width: 100%;
 }
 
+.form-field select {
+    width: 100%;
+}
+
 .errorlist {
     margin: 0.35rem 0 0;
     padding: 0;
@@ -105,6 +109,14 @@ button {
 .todo-title.completed {
     color: #64748b;
     text-decoration: line-through;
+}
+
+.todo-category {
+    padding: 0.25rem 0.5rem;
+    background: #e0e7ff;
+    border-radius: 999px;
+    color: #3730a3;
+    font-size: 0.8rem;
 }
 
 .todo-actions {

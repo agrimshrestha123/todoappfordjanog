@@ -8,7 +8,7 @@ from .models import Todo
 class TodoForm(forms.ModelForm):
     class Meta:
         model = Todo
-        fields = ['title']
+        fields = ['title', 'category']
         widgets = {
             'title': forms.TextInput(
                 attrs={'placeholder': 'What needs to be done?'}

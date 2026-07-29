@@ -18,8 +18,9 @@
 - Search todos by title
 - Filter todos by active or completed status
 - Show active and completed todo counts
+- Assign fixed categories to todos
+- Filter todos by category
 
 ## Next
 
-- Add todo categories
 - Add due dates

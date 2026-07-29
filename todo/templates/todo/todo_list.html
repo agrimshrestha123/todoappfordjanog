@@ -33,6 +33,14 @@
                 <option value="active" {% if status == 'active' %}selected{% endif %}>Active</option>
                 <option value="completed" {% if status == 'completed' %}selected{% endif %}>Completed</option>
             </select>
+            <select name="category">
+                <option value="all" {% if category == 'all' %}selected{% endif %}>All categories</option>
+                {% for category_value, category_label in categories %}
+                    <option value="{{ category_value }}" {% if category == category_value %}selected{% endif %}>
+                        {{ category_label }}
+                    </option>
+                {% endfor %}
+            </select>
             <button type="submit">Filter</button>
         </form>
 
@@ -41,6 +49,10 @@
             <div class="form-field">
                 {{ form.title }}
                 {{ form.title.errors }}
+            </div>
+            <div class="form-field">
+                {{ form.category }}
+                {{ form.category.errors }}
             </div>
             <button type="submit">Add todo</button>
         </form>
@@ -52,6 +64,7 @@
                         <span class="todo-title {% if todo.completed %}completed{% endif %}">
                             {{ todo.title }}
                         </span>
+                        <span class="todo-category">{{ todo.get_category_display }}</span>
                         <span class="todo-actions">
                             {% if not todo.completed %}
                                 <a href="{% url 'edit_todo' todo.id %}">Edit</a>
